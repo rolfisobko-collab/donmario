@@ -55,21 +55,30 @@ export default async function HabitacionesPage() {
   console.log("[v0] Mapped rooms for display:", rooms.length, rooms)
 
   return (
-    <div className="min-h-screen bg-muted/30">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50">
       <Navigation />
 
       {/* Hero Section Compact */}
-      <div className="bg-primary text-primary-foreground pt-32 pb-12">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">Nuestras Habitaciones</h1>
-          <p className="text-lg opacity-90 max-w-2xl">
-            Encuentra tu refugio ideal en la selva. Precios transparentes, sin cargos ocultos.
-          </p>
+      <div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white pt-32 pb-16 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.1]" 
+             style={{ backgroundImage: "radial-gradient(white 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            <span className="text-amber-100 font-bold tracking-widest uppercase text-sm drop-shadow-lg">Don Mario Alojamiento</span>
+            <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6 drop-shadow-2xl">
+              Nuestras Habitaciones
+            </h1>
+            <p className="text-xl text-amber-50 leading-relaxed max-w-3xl mx-auto drop-shadow-lg">
+              Encuentra tu refugio ideal en la selva. Espacios diseñados con lujo y confort para tu estadía perfecta.
+            </p>
+          </div>
         </div>
       </div>
 
       {/* Main Content with Sidebar Layout */}
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-12">
         <RoomsListClient rooms={rooms} />
       </div>
 
