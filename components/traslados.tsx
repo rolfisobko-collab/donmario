@@ -13,7 +13,6 @@ interface Tour {
   route_es: string
   whatsapp_message_es: string
   features_es: string[]
-  price_from: number
   image_url: string
   media_urls: string[]
   is_featured: boolean
@@ -70,11 +69,6 @@ export function Traslados() {
                   sizes="(max-width: 768px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
-                <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md rounded-full px-4 py-2 shadow-lg border border-zinc-100">
-                  <span className="text-sm font-bold text-amber-600">
-                    {new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(tour.price_from)}
-                  </span>
-                </div>
               </div>
               
               <CardContent className="p-7 space-y-5">

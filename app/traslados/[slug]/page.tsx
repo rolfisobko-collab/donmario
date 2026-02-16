@@ -19,7 +19,6 @@ interface Tour {
   route_es: string
   whatsapp_message_es: string
   features_es: string[]
-  price_from: number
   image_url: string
 }
 
@@ -45,14 +44,6 @@ export default function TourDetailPage() {
         <Footer />
       </main>
     )
-  }
-
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('es-AR', {
-      style: 'currency',
-      currency: 'ARS',
-      minimumFractionDigits: 0
-    }).format(price)
   }
 
   const handleWhatsAppReservation = () => {
@@ -143,11 +134,6 @@ export default function TourDetailPage() {
                             sizes="(max-width: 768px) 50vw, 33vw"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
-                          <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md rounded-full px-3 py-1 shadow-lg border border-zinc-100">
-                            <span className="text-sm font-bold text-amber-600">
-                              {formatPrice(recommendedTour.price_from)}
-                            </span>
-                          </div>
                           <div className="absolute bottom-4 left-4 right-4">
                             <h3 className="text-white font-bold text-lg line-clamp-2 mb-2">
                               {recommendedTour.title_es}
@@ -184,13 +170,6 @@ export default function TourDetailPage() {
               {/* Booking Card */}
               <Card className="sticky top-8 border-none shadow-xl">
                 <CardContent className="p-6 space-y-6">
-                  <div>
-                    <div className="text-3xl font-serif font-bold text-blue-600">
-                      {formatPrice(tour.price_from)}
-                    </div>
-                    <div className="text-sm text-muted-foreground">por persona</div>
-                  </div>
-
                   <div className="space-y-3 text-sm">
                     <div className="flex items-center gap-3">
                       <Calendar className="h-5 w-5 text-muted-foreground" />
