@@ -10,6 +10,7 @@ import { usePathname } from "next/navigation"
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [currentSection, setCurrentSection] = useState("")
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname()
   const isHomePage = pathname === "/"
 
@@ -179,6 +180,78 @@ export function Navigation() {
     }
   }
 
+  const getMobileMenuStyle = () => {
+    if (!isHomePage) {
+      if (pathname.includes("restaurante")) {
+        return "bg-gradient-to-br from-red-50 to-orange-50 border-red-200"
+      }
+      if (pathname.includes("traslados")) {
+        return "bg-gradient-to-br from-slate-50 to-amber-50 border-amber-200"
+      }
+      if (pathname.includes("habitaciones")) {
+        return "bg-gradient-to-br from-amber-50 to-yellow-50 border-amber-200"
+      }
+      return "bg-background border-slate-200"
+    }
+    
+    if (isScrolled) {
+      return "bg-background/95 backdrop-blur-md border-slate-200"
+    }
+    
+    switch (currentSection) {
+      case "parrilla":
+        return "bg-gradient-to-br from-red-900/95 to-orange-900/95 border-red-700/50 backdrop-blur-md"
+      case "traslados":
+        return "bg-gradient-to-br from-slate-900/95 to-amber-900/95 border-amber-700/50 backdrop-blur-md"
+      case "rooms":
+        return "bg-gradient-to-br from-amber-900/95 to-yellow-900/95 border-amber-700/50 backdrop-blur-md"
+      default:
+        return "bg-gradient-to-br from-slate-900/95 to-slate-800/95 border-white/20 backdrop-blur-md"
+    }
+  }
+
+  const getMobileLinkStyle = (link: { href: string; label: string; isPage?: boolean }) => {
+    if (!isHomePage) {
+      if (pathname.includes("restaurante")) {
+        return link.href.includes("restaurante") 
+          ? "text-red-600 font-semibold bg-red-50 border border-red-200" 
+          : "text-slate-700 hover:text-red-600 hover:bg-red-50"
+      }
+      if (pathname.includes("traslados")) {
+        return link.href.includes("traslados") 
+          ? "text-amber-600 font-semibold bg-amber-50 border border-amber-200" 
+          : "text-slate-700 hover:text-amber-600 hover:bg-amber-50"
+      }
+      if (pathname.includes("habitaciones")) {
+        return link.href.includes("habitaciones") 
+          ? "text-amber-600 font-semibold bg-amber-50 border border-amber-200" 
+          : "text-slate-700 hover:text-amber-600 hover:bg-amber-50"
+      }
+      return link.isPage ? 'text-foreground font-semibold bg-muted border' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+    }
+    
+    if (isScrolled) {
+      return link.isPage ? 'text-foreground font-semibold bg-muted border' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+    }
+    
+    switch (currentSection) {
+      case "parrilla":
+        return link.href.includes("parrilla") 
+          ? "text-red-200 font-semibold bg-red-800/50 border border-red-700/50" 
+          : "text-white/90 hover:text-red-200 hover:bg-red-800/30 border border-transparent"
+      case "traslados":
+        return link.href.includes("traslados") 
+          ? "text-amber-200 font-semibold bg-amber-800/50 border border-amber-700/50" 
+          : "text-white/90 hover:text-amber-200 hover:bg-amber-800/30 border border-transparent"
+      case "rooms":
+        return link.href.includes("habitaciones") 
+          ? "text-amber-200 font-semibold bg-amber-800/50 border border-amber-700/50" 
+          : "text-white/90 hover:text-amber-200 hover:bg-amber-800/30 border border-transparent"
+      default:
+        return link.isPage ? 'text-white font-semibold bg-white/10 border border-white/20' : 'text-white/90 hover:text-white hover:bg-white/10 border border-transparent'
+    }
+  }
+
   const navLinks = [
     { href: "/#about", label: "Nosotros" },
     { href: "/#rooms", label: "Habitaciones", isPage: true },
@@ -225,7 +298,7 @@ export function Navigation() {
           </div>
 
           {/* Mobile Navigation */}
-          <Sheet>
+          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild className="md:hidden">
               <Button
                 variant="ghost"
@@ -235,31 +308,68 @@ export function Navigation() {
                 <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent>
+            <SheetContent className={`${getMobileMenuStyle()} border-0 shadow-2xl`}>
               <SheetTitle className="sr-only">Menú de navegación</SheetTitle>
-              <div className="flex flex-col gap-6 mt-8">
-                {navLinks.map((link) =>
-                  link.isPage ? (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className="text-lg font-medium hover:text-primary transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  ) : (
-                    <a
-                      key={link.href}
-                      href={link.href}
-                      className="text-lg font-medium hover:text-primary transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  ),
-                )}
-                <Button className="w-full" asChild>
-                  <Link href="/habitaciones">Reservar</Link>
+              
+              {/* Mobile Menu Header */}
+              <div className="flex items-center justify-between mb-8 pb-6 border-b border-white/10">
+                <Link 
+                  href="/" 
+                  className={`font-serif text-xl font-bold ${getLogoStyle()}`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Don Mario Turismo
+                </Link>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className={isScrolled || !isHomePage ? "text-foreground hover:text-foreground" : "text-white/80 hover:text-white"}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
                 </Button>
+              </div>
+
+              {/* Mobile Menu Links */}
+              <div className="flex flex-col gap-2">
+                {navLinks.map((link) => {
+                  if (link.isPage) {
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className={`px-4 py-3 rounded-lg text-lg font-medium transition-all duration-300 transform hover:scale-105 ${getMobileLinkStyle(link)}`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {link.label}
+                      </Link>
+                    )
+                  } else {
+                    return (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        className={`px-4 py-3 rounded-lg text-lg font-medium transition-all duration-300 transform hover:scale-105 ${getMobileLinkStyle(link)}`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {link.label}
+                      </a>
+                    )
+                  }
+                })}
+                
+                {/* Mobile CTA Button */}
+                <div className="pt-6 mt-4 border-t border-white/10">
+                  <Button 
+                    className={`w-full text-lg py-4 transition-all duration-300 transform hover:scale-105 ${getButtonStyle()}`}
+                    asChild
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <Link href="/habitaciones">Reservar Ahora</Link>
+                  </Button>
+                </div>
               </div>
             </SheetContent>
           </Sheet>
