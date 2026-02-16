@@ -112,11 +112,11 @@ export function RoomDetailClient({ room }: RoomDetailClientProps) {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50">
       {/* Back Button */}
-      <div className="border-b bg-card">
+      <div className="border-b border-amber-200/30 bg-white/95 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-4">
-          <Button variant="ghost" asChild className="gap-2">
+          <Button variant="ghost" asChild className="gap-2 text-amber-600 hover:text-amber-700 hover:bg-amber-50">
             <Link href="/habitaciones">
               <ArrowLeft className="w-4 h-4" />
               Volver a Habitaciones
@@ -126,24 +126,28 @@ export function RoomDetailClient({ room }: RoomDetailClientProps) {
       </div>
 
       {/* Header */}
-      <section className="py-8 border-b">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <section className="py-8 lg:py-12 bg-gradient-to-r from-amber-600 to-orange-600 text-white relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.1]" 
+             style={{ backgroundImage: "radial-gradient(white 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
             <div>
-              <h1 className="text-4xl md:text-5xl font-serif font-bold mb-2 text-primary">{room.name}</h1>
-              <div className="flex items-center gap-2 text-xl text-muted-foreground">
-                <Badge variant="outline" className="text-lg px-3 py-1 border-primary/20 text-primary">
+              <h1 className="text-3xl lg:text-5xl font-serif font-bold mb-4 text-white drop-shadow-lg">{room.name}</h1>
+              <div className="flex flex-col sm:flex-row items-center gap-3 text-lg text-amber-100">
+                <Badge variant="outline" className="text-lg px-4 py-2 border-2 border-white/30 bg-white/10 text-white font-bold">
                   {room.size} m²
                 </Badge>
-                <span>•</span>
+                <span className="hidden sm:inline">•</span>
                 <span>Capacidad: {room.capacity} personas</span>
               </div>
             </div>
-            <div className="flex gap-2">
-              <Button variant="outline" size="icon">
+            <div className="flex gap-3">
+              <Button variant="outline" size="icon" className="border-2 border-white/30 bg-white/10 text-white hover:bg-white/20">
                 <Share2 className="w-4 h-4" />
               </Button>
-              <Button variant="outline" size="icon">
+              <Button variant="outline" size="icon" className="border-2 border-white/30 bg-white/10 text-white hover:bg-white/20">
                 <Heart className="w-4 h-4" />
               </Button>
             </div>
@@ -152,12 +156,12 @@ export function RoomDetailClient({ room }: RoomDetailClientProps) {
       </section>
 
       {/* Gallery */}
-      <section id="galeria" className="py-8 bg-muted/30">
+      <section id="galeria" className="py-8 lg:py-12">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-4">
+          <div className="grid lg:grid-cols-4 gap-6">
             {/* Main Image */}
-            <div className="md:col-span-3">
-              <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-muted shadow-lg">
+            <div className="lg:col-span-3">
+              <div className="relative aspect-[16/10] lg:aspect-[16/9] rounded-2xl overflow-hidden bg-white shadow-xl border-2 border-amber-200/50">
                 <img
                   src={allImages[selectedImage] || "/placeholder.svg"}
                   alt={`${room.name} - Imagen ${selectedImage + 1}`}
@@ -167,14 +171,16 @@ export function RoomDetailClient({ room }: RoomDetailClientProps) {
             </div>
 
             {/* Thumbnail Grid */}
-            <div className="grid grid-cols-4 md:grid-cols-1 gap-2">
+            <div className="grid grid-cols-2 lg:grid-cols-1 gap-3">
               {allImages.slice(0, 4).map((image, idx) => (
                 <button
                   key={idx}
                   onClick={() => setSelectedImage(idx)}
                   className={cn(
-                    "relative aspect-square rounded-lg overflow-hidden bg-muted transition-all shadow-sm",
-                    selectedImage === idx ? "ring-4 ring-primary" : "hover:ring-2 ring-primary/50",
+                    "relative aspect-square rounded-xl overflow-hidden bg-white shadow-lg border-2 transition-all duration-300",
+                    selectedImage === idx 
+                      ? "border-amber-600 ring-4 ring-amber-400/30 scale-105" 
+                      : "border-amber-200/50 hover:border-amber-400 hover:scale-102"
                   )}
                 >
                   <img
@@ -190,34 +196,34 @@ export function RoomDetailClient({ room }: RoomDetailClientProps) {
       </section>
 
       {/* Main Content */}
-      <section className="py-12">
+      <section className="py-12 lg:py-16">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-3 gap-12">
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
             {/* Left Column - Room Details */}
             <div className="lg:col-span-2 space-y-8">
               {/* Quick Info */}
-              <Card className="border-2 border-primary/10 shadow-sm">
-                <CardContent className="p-6">
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <Card className="border-2 border-amber-200/50 bg-white/95 backdrop-blur-sm shadow-lg">
+                <CardContent className="p-6 lg:p-8">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                     <div className="text-center">
-                      <Users className="w-8 h-8 mx-auto mb-2 text-primary" />
-                      <p className="text-sm text-muted-foreground">Capacidad</p>
-                      <p className="font-bold text-lg text-foreground">{room.capacity} personas</p>
+                      <Users className="w-8 h-8 mx-auto mb-3 text-amber-600" />
+                      <p className="text-sm text-slate-600 font-medium">Capacidad</p>
+                      <p className="text-xl lg:text-2xl font-bold text-slate-900">{room.capacity} personas</p>
                     </div>
                     <div className="text-center">
-                      <Maximize className="w-8 h-8 mx-auto mb-2 text-primary" />
-                      <p className="text-sm text-muted-foreground">Tamaño</p>
-                      <p className="font-bold text-lg text-foreground">{room.size} m²</p>
+                      <Maximize className="w-8 h-8 mx-auto mb-3 text-amber-600" />
+                      <p className="text-sm text-slate-600 font-medium">Tamaño</p>
+                      <p className="text-xl lg:text-2xl font-bold text-slate-900">{room.size} m²</p>
                     </div>
                     <div className="text-center">
-                      <Calendar className="w-8 h-8 mx-auto mb-2 text-primary" />
-                      <p className="text-sm text-muted-foreground">Precio</p>
-                      <p className="font-bold text-lg text-foreground">${room.price.toLocaleString("es-AR")}</p>
+                      <Calendar className="w-8 h-8 mx-auto mb-3 text-amber-600" />
+                      <p className="text-sm text-slate-600 font-medium">Precio</p>
+                      <p className="text-xl lg:text-2xl font-bold text-amber-600">${room.price.toLocaleString("es-AR")}</p>
                     </div>
                     <div className="text-center">
-                      <Check className="w-8 h-8 mx-auto mb-2 text-primary" />
-                      <p className="text-sm text-muted-foreground">Estado</p>
-                      <p className="font-bold text-lg text-green-600">Disponible</p>
+                      <Check className="w-8 h-8 mx-auto mb-3 text-green-600" />
+                      <p className="text-sm text-slate-600 font-medium">Estado</p>
+                      <p className="text-xl lg:text-2xl font-bold text-green-600">Disponible</p>
                     </div>
                   </div>
                 </CardContent>
@@ -225,25 +231,27 @@ export function RoomDetailClient({ room }: RoomDetailClientProps) {
 
               {/* Description */}
               <div>
-                <h2 className="text-3xl font-serif font-bold mb-4 text-primary">Descripción</h2>
-                <p className="text-lg text-foreground/80 leading-relaxed">{room.description}</p>
+                <h2 className="text-3xl lg:text-4xl font-serif font-bold mb-6 text-slate-900">Descripción</h2>
+                <p className="text-lg text-slate-700 leading-relaxed bg-white/80 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-amber-200/30">
+                  {room.description}
+                </p>
               </div>
 
-              <Separator className="bg-primary/10" />
+              <Separator className="bg-amber-200/30" />
 
-              {/* Bed Configuration - Using safeBeds instead of room.beds */}
+              {/* Bed Configuration */}
               <div>
-                <h2 className="text-3xl font-serif font-bold mb-4 text-primary">Configuración de Camas</h2>
-                <div className="grid md:grid-cols-2 gap-4">
+                <h2 className="text-3xl lg:text-4xl font-serif font-bold mb-6 text-slate-900">Configuración de Camas</h2>
+                <div className="grid sm:grid-cols-2 gap-4">
                   {safeBeds.map((bed, idx) => (
-                    <Card key={idx} className="border-2 border-primary/10">
-                      <CardContent className="p-4 flex items-center gap-3">
-                        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                          <BedDouble className="w-6 h-6 text-primary" />
+                    <Card key={idx} className="border-2 border-amber-200/50 bg-white/95 backdrop-blur-sm shadow-md hover:shadow-lg transition-shadow">
+                      <CardContent className="p-6 flex items-center gap-4">
+                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center flex-shrink-0">
+                          <BedDouble className="w-8 h-8 text-amber-700" />
                         </div>
                         <div>
-                          <p className="font-semibold text-lg text-foreground">{bed.type}</p>
-                          <p className="text-sm text-muted-foreground">Cantidad: {bed.count}</p>
+                          <p className="text-lg font-bold text-slate-900">{bed.type}</p>
+                          <p className="text-sm text-slate-600">Cantidad: {bed.count}</p>
                         </div>
                       </CardContent>
                     </Card>
@@ -251,20 +259,20 @@ export function RoomDetailClient({ room }: RoomDetailClientProps) {
                 </div>
               </div>
 
-              <Separator className="bg-primary/10" />
+              <Separator className="bg-amber-200/30" />
 
-              {/* Amenities - Using safeAmenities instead of room.amenities */}
+              {/* Amenities */}
               <div>
-                <h2 className="text-3xl font-serif font-bold mb-6 text-primary">Comodidades</h2>
-                <div className="grid md:grid-cols-2 gap-4">
+                <h2 className="text-3xl lg:text-4xl font-serif font-bold mb-8 text-slate-900">Comodidades</h2>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {safeAmenities.map((amenity, idx) => {
                     const Icon = iconMap[amenity] || Check
                     return (
-                      <div key={idx} className="flex items-center gap-3 p-3 rounded-lg bg-muted/30">
-                        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                          <Icon className="w-5 h-5 text-primary" />
+                      <div key={idx} className="flex items-center gap-4 p-4 rounded-2xl bg-white/95 backdrop-blur-sm border border-amber-200/50 hover:shadow-md transition-shadow">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center flex-shrink-0">
+                          <Icon className="w-6 h-6 text-amber-700" />
                         </div>
-                        <span className="font-medium text-foreground">{amenity}</span>
+                        <span className="font-medium text-slate-800">{amenity}</span>
                       </div>
                     )
                   })}
@@ -274,48 +282,50 @@ export function RoomDetailClient({ room }: RoomDetailClientProps) {
 
             {/* Right Column - Booking Card */}
             <div className="lg:col-span-1">
-              <Card className="border-2 border-primary/10 shadow-lg sticky top-24">
-                <CardContent className="p-6 space-y-6">
+              <Card className="border-2 border-amber-200/50 bg-white/95 backdrop-blur-sm shadow-2xl sticky top-24">
+                <CardContent className="p-6 lg:p-8 space-y-6">
                   <div>
                     <div className="flex items-baseline gap-2 mb-2">
-                      <span className="text-4xl font-bold text-primary">${room.price.toLocaleString("es-AR")}</span>
-                      <span className="text-muted-foreground">/ noche</span>
+                      <span className="text-3xl lg:text-4xl font-bold text-amber-600">${room.price.toLocaleString("es-AR")}</span>
+                      <span className="text-lg text-slate-600">/ noche</span>
                     </div>
-                    <Badge variant="secondary" className="text-sm bg-primary/10 text-primary hover:bg-primary/20">
+                    <Badge variant="secondary" className="text-sm bg-amber-100 text-amber-700 border border-amber-200 font-medium">
                       Cancelación Gratis
                     </Badge>
                   </div>
 
-                  <Separator className="bg-primary/10" />
+                  <Separator className="bg-amber-200/30" />
 
                   {/* Booking Form */}
-                  <div className="space-y-4">
+                  <div className="space-y-5">
                     <div className="space-y-2">
-                      <Label htmlFor="check-in">Fecha de Entrada</Label>
+                      <Label htmlFor="check-in" className="text-slate-700 font-medium">Fecha de Entrada</Label>
                       <Input
                         id="check-in"
                         type="date"
                         value={checkIn}
                         onChange={(e) => setCheckIn(e.target.value)}
                         min={new Date().toISOString().split("T")[0]}
+                        className="border-amber-200/50 focus:border-amber-400 focus:ring-amber-400"
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="check-out">Fecha de Salida</Label>
+                      <Label htmlFor="check-out" className="text-slate-700 font-medium">Fecha de Salida</Label>
                       <Input
                         id="check-out"
                         type="date"
                         value={checkOut}
                         onChange={(e) => setCheckOut(e.target.value)}
                         min={checkIn || new Date().toISOString().split("T")[0]}
+                        className="border-amber-200/50 focus:border-amber-400 focus:ring-amber-400"
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="guests">Número de Huéspedes</Label>
+                      <Label htmlFor="guests" className="text-slate-700 font-medium">Número de Huéspedes</Label>
                       <Select value={guests} onValueChange={setGuests}>
-                        <SelectTrigger id="guests">
+                        <SelectTrigger id="guests" className="border-amber-200/50 focus:border-amber-400 focus:ring-amber-400">
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
@@ -329,45 +339,45 @@ export function RoomDetailClient({ room }: RoomDetailClientProps) {
                     </div>
                   </div>
 
-                  <Separator className="bg-primary/10" />
+                  <Separator className="bg-amber-200/30" />
 
                   {/* Price Breakdown */}
-                  <div className="space-y-3">
+                  <div className="space-y-4 bg-amber-50/50 rounded-xl p-4">
                     <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">
+                      <span className="text-slate-600">
                         ${room.price.toLocaleString("es-AR")} x {nights} {nights === 1 ? "noche" : "noches"}
                       </span>
-                      <span className="font-medium">${totalPrice.toLocaleString("es-AR")}</span>
+                      <span className="font-bold text-slate-900">${totalPrice.toLocaleString("es-AR")}</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">Tarifa de servicio</span>
-                      <span className="font-medium">$0</span>
+                      <span className="text-slate-600">Tarifa de servicio</span>
+                      <span className="font-bold text-slate-900">$0</span>
                     </div>
-                    <Separator />
-                    <div className="flex justify-between text-lg font-bold">
-                      <span>Total</span>
-                      <span className="text-primary">${totalPrice.toLocaleString("es-AR")}</span>
+                    <Separator className="bg-amber-200/30" />
+                    <div className="flex justify-between text-xl lg:text-2xl font-bold">
+                      <span className="text-slate-900">Total</span>
+                      <span className="text-amber-600">${totalPrice.toLocaleString("es-AR")}</span>
                     </div>
                   </div>
 
-                  <Button size="lg" className="w-full" onClick={handleReservation} disabled={!checkIn || !checkOut}>
+                  <Button size="lg" className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-bold py-4 text-lg" onClick={handleReservation} disabled={!checkIn || !checkOut}>
                     Reservar Ahora
                   </Button>
 
                   <Button
                     variant="outline"
                     size="lg"
-                    className="w-full gap-2 bg-transparent border-primary text-primary hover:bg-primary/5"
+                    className="w-full border-2 border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white font-medium"
                     onClick={() => {
                       const message = `Hola! Tengo una consulta sobre la habitación "${room.name}"`
                       window.open(`https://wa.me/5493757000000?text=${encodeURIComponent(message)}`, "_blank")
                     }}
                   >
-                    <MessageCircle className="w-4 h-4" />
+                    <MessageCircle className="w-4 h-4 mr-2" />
                     Consultar por WhatsApp
                   </Button>
 
-                  <p className="text-xs text-center text-muted-foreground">No se realizará ningún cargo todavía</p>
+                  <p className="text-xs text-center text-slate-500">No se realizará ningún cargo todavía</p>
                 </CardContent>
               </Card>
             </div>
