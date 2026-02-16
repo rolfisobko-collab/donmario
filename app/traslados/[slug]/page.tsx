@@ -48,7 +48,7 @@ export default function TourDetailPage() {
 
   const handleWhatsAppReservation = () => {
     const message = encodeURIComponent(tour.whatsapp_message_es)
-    window.open(`https://wa.me/5491112345678?text=${message}`, '_blank')
+    window.open(`https://wa.me/5493757671408?text=${message}`, '_blank')
   }
 
   return (

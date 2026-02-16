@@ -23,7 +23,10 @@ const nextConfig: NextConfig = {
       "travelandleisure-es.com",
       "i.ibb.co",
       "images.unsplash.com",
-      "instagram.fcnq2-2.fna.fbcdn.net"
+      "instagram.fcnq2-2.fna.fbcdn.net",
+      "don-mario-3370.puerto-iguazu-hotels24.com",
+      "www.argentina.gob.ar",
+      "lh3.googleusercontent.com"
     ],
   },
 };

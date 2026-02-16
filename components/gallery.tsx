@@ -1,14 +1,14 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Play } from "lucide-react"
-import { getFeaturedGalleryImages } from "@/lib/db"
+import { getAllGalleryImages } from "@/lib/db"
 
 function isVideoUrl(url: string): boolean {
   return /\.(mp4|webm|mov|avi)$/i.test(url)
 }
 
 export async function Gallery() {
-  const images = await getFeaturedGalleryImages(5)
+  const images = await getAllGalleryImages() // Traer todas las imágenes
 
   const displayImages =
     images.length > 0

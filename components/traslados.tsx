@@ -100,7 +100,7 @@ export function Traslados() {
                     Ver Detalles
                   </a>
                   <a
-                    href={`https://wa.me/5491112345678?text=${encodeURIComponent(tour.whatsapp_message_es)}`}
+                    href={`https://wa.me/5493757671408?text=${encodeURIComponent(tour.whatsapp_message_es)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 text-center shadow-md hover:shadow-lg"

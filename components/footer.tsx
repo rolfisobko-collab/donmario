@@ -127,10 +127,7 @@ export function Footer() {
             <div className={`space-y-4 ${getSecondaryTextColor()}`}>
               <div className="flex items-start gap-3">
                 <MapPin className={`h-5 w-5 ${getAccentColor()} flex-shrink-0 mt-1`} />
-                <span className="text-base">
-                  Av. República Argentina 451<br />
-                  Puerto Iguazú 3370, Misiones
-                </span>
+                <span className="text-base">Ruta Provincial 101, Puerto Iguazú<br/>Misiones, Argentina</span>
               </div>
               <div className="flex items-start gap-3">
                 <Mail className={`h-5 w-5 ${getAccentColor()} flex-shrink-0 mt-1`} />
@@ -151,7 +148,7 @@ export function Footer() {
             <h3 className={`text-xl font-serif font-semibold ${getAccentColor()}`}>Seguinos</h3>
             <div className="flex gap-4">
               <a
-                href="https://instagram.com/donmarioturismo"
+                href="https://instagram.com/parrilladonmario"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`w-12 h-12 rounded-full border-2 ${getAccentColor().replace('text-', 'border-')} ${getSecondaryTextColor()} hover:text-white transition-all duration-300 flex items-center justify-center hover:scale-110`}
@@ -159,7 +156,15 @@ export function Footer() {
                 <Instagram className="h-6 w-6" />
               </a>
               <a
-                href="https://wa.me/5493757123456"
+                href="https://instagram.com/alojamiento_donmario"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`w-12 h-12 rounded-full border-2 ${getAccentColor().replace('text-', 'border-')} ${getSecondaryTextColor()} hover:text-white transition-all duration-300 flex items-center justify-center hover:scale-110`}
+              >
+                <Instagram className="h-6 w-6" />
+              </a>
+              <a
+                href="https://wa.me/5493757671408"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`w-12 h-12 rounded-full border-2 ${getAccentColor().replace('text-', 'border-')} ${getSecondaryTextColor()} hover:text-white transition-all duration-300 flex items-center justify-center hover:scale-110`}

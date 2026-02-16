@@ -45,7 +45,7 @@ export function RoomsListClient({ rooms }: RoomsListClientProps) {
   const [filteredRooms, setFilteredRooms] = React.useState(rooms)
   const [filters, setFilters] = React.useState({
     guests: [] as number[],
-    maxPrice: 150000,
+    maxPrice: 250000,
   })
 
   React.useEffect(() => {

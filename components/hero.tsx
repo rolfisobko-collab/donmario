@@ -11,7 +11,7 @@ export function Hero() {
   const slides = [
     {
       id: 0,
-      image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      image: "https://don-mario-3370.puerto-iguazu-hotels24.com/data/Images/OriginalPhoto/16365/1636500/1636500512/image-puerto-iguazu-hotel-don-mario-3.JPEG",
       logo: "https://i.ibb.co/fdyP72yr/469511863-17948267576910760-160937566039743134-n-1.jpg",
       business: "hotel",
       title: "Don Mario Alojamiento",
@@ -23,7 +23,7 @@ export function Hero() {
     },
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      image: "https://lh3.googleusercontent.com/gps-cs-s/AHVAwepsWd5kHdOlhUWaWOwSOP63-HmzbydFjLXinQGmz3WMoTfZeoKBDi3mkmF2tdvGGFufXmpVJ7uLOMjnkwuzIw6mX48Id25dh5hHU_x_NG2B7b3wB0UeWBWkR1Atdn4foKDuhfGcdA=s1360-w1360-h1020-rw",
       logo: "https://instagram.fcnq2-2.fna.fbcdn.net/v/t51.2885-19/454197632_1205924547218194_7952387976563658738_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby41MDAuYzIifQ&_nc_ht=instagram.fcnq2-2.fna.fbcdn.net&_nc_cat=110&_nc_oc=Q6cZ2QGb-cXWdyHCc1XhSw7WSVg28tjjtPQ5RySbsVDDRQN0DSv-VXv6z2P9z-vx1giGRvg&_nc_ohc=EiOVP-3zd2IQ7kNvwGpcZ6W&_nc_gid=hBW1cFA26JglEf17AM4hFA&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_AfvjpTglYxbOJbLWScmmaL7Cb93S8wnpCYW_Ibm9-aRxPg&oe=6997D8D8&_nc_sid=7a9f4b",
       business: "restaurante",
       title: "Don Mario Restaurante",
@@ -128,7 +128,7 @@ export function Hero() {
                 <div className="pt-4">
                   <Link
                     href={
-                      currentSlideData.business === 'hotel' ? '/#rooms' :
+                      currentSlideData.business === 'hotel' ? '/habitaciones' :
                       currentSlideData.business === 'restaurante' ? '/restaurante' :
                       '/traslados'
                     }
@@ -215,22 +215,6 @@ export function Hero() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </button>
-
-      {/* Indicadores del Carrusel */}
-      <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 flex gap-2">
-        {slides.map((slide, index) => (
-          <button
-            key={slide.id}
-            onClick={() => goToSlide(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === currentSlide 
-                ? 'bg-white' 
-                : 'bg-white/40 hover:bg-white/60'
-            }`}
-            aria-label={`Ir a ${slide.title}`}
-          />
-        ))}
-      </div>
     </div>
   )
 }

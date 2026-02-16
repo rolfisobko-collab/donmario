@@ -107,7 +107,7 @@ export function RoomDetailClient({ room }: RoomDetailClientProps) {
   const handleReservation = () => {
     const formattedPrice = totalPrice.toLocaleString("es-AR")
     const message = `Hola! Me interesa reservar la habitación "${room.name}" del ${checkIn} al ${checkOut} para ${guests} personas. Total: $${formattedPrice} ARS`
-    const whatsappUrl = `https://wa.me/5493757000000?text=${encodeURIComponent(message)}`
+    const whatsappUrl = `https://wa.me/5493757671408?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, "_blank")
   }
 
@@ -158,40 +158,57 @@ export function RoomDetailClient({ room }: RoomDetailClientProps) {
       {/* Gallery */}
       <section id="galeria" className="py-8 lg:py-12">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-4 gap-6">
-            {/* Main Image */}
-            <div className="lg:col-span-3">
+          {allImages.length === 1 ? (
+            /* Single Image - Full Width */
+            <div className="max-w-4xl mx-auto">
               <div className="relative aspect-[16/10] lg:aspect-[16/9] rounded-2xl overflow-hidden bg-white shadow-xl border-2 border-amber-200/50">
                 <img
-                  src={allImages[selectedImage] || "/placeholder.svg"}
-                  alt={`${room.name} - Imagen ${selectedImage + 1}`}
-                  className="object-cover w-full h-full"
+                  src={allImages[0]}
+                  alt={`${room.name} - Imagen principal`}
+                  className="object-cover w-full h-full scale-105"
+                  style={{ imageRendering: 'crisp-edges' }}
                 />
               </div>
             </div>
-
-            {/* Thumbnail Grid */}
-            <div className="grid grid-cols-2 lg:grid-cols-1 gap-3">
-              {allImages.slice(0, 4).map((image, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setSelectedImage(idx)}
-                  className={cn(
-                    "relative aspect-square rounded-xl overflow-hidden bg-white shadow-lg border-2 transition-all duration-300",
-                    selectedImage === idx 
-                      ? "border-amber-600 ring-4 ring-amber-400/30 scale-105" 
-                      : "border-amber-200/50 hover:border-amber-400 hover:scale-102"
-                  )}
-                >
+          ) : (
+            /* Multiple Images - Grid Layout */
+            <div className="grid lg:grid-cols-4 gap-6">
+              {/* Main Image */}
+              <div className="lg:col-span-3">
+                <div className="relative aspect-[16/10] lg:aspect-[16/9] rounded-2xl overflow-hidden bg-white shadow-xl border-2 border-amber-200/50">
                   <img
-                    src={image || "/placeholder.svg"}
-                    alt={`Thumbnail ${idx + 1}`}
-                    className="object-cover w-full h-full"
+                    src={allImages[selectedImage] || "/placeholder.svg"}
+                    alt={`${room.name} - Imagen ${selectedImage + 1}`}
+                    className="object-cover w-full h-full scale-105"
+                    style={{ imageRendering: 'crisp-edges' }}
                   />
-                </button>
-              ))}
+                </div>
+              </div>
+
+              {/* Thumbnail Grid */}
+              <div className="grid grid-cols-2 lg:grid-cols-1 gap-3">
+                {allImages.slice(0, 4).map((image, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setSelectedImage(idx)}
+                    className={cn(
+                      "relative aspect-square rounded-xl overflow-hidden bg-white shadow-lg border-2 transition-all duration-300",
+                      selectedImage === idx 
+                        ? "border-amber-600 ring-4 ring-amber-400/30 scale-105" 
+                        : "border-amber-200/50 hover:border-amber-400 hover:scale-102"
+                    )}
+                  >
+                    <img
+                      src={image || "/placeholder.svg"}
+                      alt={`Thumbnail ${idx + 1}`}
+                      className="object-cover w-full h-full scale-105"
+                      style={{ imageRendering: 'crisp-edges' }}
+                    />
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
 
@@ -370,7 +387,7 @@ export function RoomDetailClient({ room }: RoomDetailClientProps) {
                     className="w-full border-2 border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white font-medium"
                     onClick={() => {
                       const message = `Hola! Tengo una consulta sobre la habitación "${room.name}"`
-                      window.open(`https://wa.me/5493757000000?text=${encodeURIComponent(message)}`, "_blank")
+                      window.open(`https://wa.me/5493757671408?text=${encodeURIComponent(message)}`, "_blank")
                     }}
                   >
                     <MessageCircle className="w-4 h-4 mr-2" />

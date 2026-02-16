@@ -3,102 +3,82 @@
 export const mockRooms = [
   {
     id: 1,
-    name: "Habitación Doble Estándar",
-    slug: "habitacion-doble-estandar",
-    description: "Habitación cómoda con cama queen size, ideal para parejas o viajeros de negocios. Incluye aire acondicionado, TV smart y baño privado con ducha caliente.",
+    name: "Habitación Doble",
+    slug: "habitacion-doble",
+    description: "Habitación cómoda con cama matrimonial, ideal para parejas o viajeros de negocios. Incluye aire acondicionado, TV smart y baño privado.",
     max_guests: 2,
-    base_price: 45000,
+    base_price: 120000,
     beds_info: {
-      queen: 1
+      matrimonial: 1
     },
-    amenities: ["aire-acondicionado", "tv-smart", "wifi", "banio-privado", "ducha-caliente"],
+    amenities: ["aire-acondicionado", "tv-smart", "wifi", "banio-privado"],
     images: [
-      "https://i0.wp.com/iguazuargentinatours.com/wp-content/uploads/2020/05/Iguazu-Waterfalls-Awasi-Iguazu-PH-Miguel-Cesar-scaled.jpg?fit=1920%2C1275&ssl=1",
-      "https://i0.wp.com/iguazuargentinatours.com/wp-content/uploads/2020/05/Iguazu-Waterfalls-Awasi-Iguazu-PH-Miguel-Cesar-scaled.jpg?fit=1920%2C1275&ssl=1"
+      "https://i.ibb.co/d41rZQfg/unnamed-1.webp"
     ],
     status: "disponible"
   },
   {
     id: 2,
-    name: "Habitación Triple",
-    slug: "habitacion-triple",
-    description: "Espaciosa habitación perfecta para familias o grupos pequeños. Cuenta con una cama doble y una individual, escritorio y área de estar.",
-    max_guests: 3,
-    base_price: 65000,
+    name: "Habitación Simple",
+    slug: "habitacion-simple",
+    description: "Habitación funcional con cama matrimonial, perfecta para viajeros solitarios o estancias cortas.",
+    max_guests: 1,
+    base_price: 80000,
     beds_info: {
-      doble: 1,
-      individual: 1
+      matrimonial: 1
     },
-    amenities: ["aire-acondicionado", "tv-smart", "wifi", "banio-privado", "escritorio", "area-estar"],
+    amenities: ["aire-acondicionado", "tv-smart", "wifi", "banio-privado"],
     images: [
-      "https://i0.wp.com/iguazuargentinatours.com/wp-content/uploads/2020/05/Iguazu-Waterfalls-Awasi-Iguazu-PH-Miguel-Cesar-scaled.jpg?fit=1920%2C1275&ssl=1",
-      "https://i0.wp.com/iguazuargentinatours.com/wp-content/uploads/2020/05/Iguazu-Waterfalls-Awasi-Iguazu-PH-Miguel-Cesar-scaled.jpg?fit=1920%2C1275&ssl=1"
+      "https://i.ibb.co/B25YQ2dp/unnamed-2.webp"
     ],
     status: "disponible"
   },
   {
     id: 3,
-    name: "Suite Junior",
-    slug: "suite-junior",
-    description: "Lujo y confort en nuestra suite junior con sala de estar separada, cama king size y balcón privado con vista al jardín.",
-    max_guests: 2,
-    base_price: 85000,
+    name: "Habitación Cuádruple",
+    slug: "habitacion-cuadruple",
+    description: "Espaciosa habitación con dos camas matrimoniales, ideal para familias o grupos grandes.",
+    max_guests: 4,
+    base_price: 160000,
     beds_info: {
-      king: 1
+      matrimonial: 2
     },
-    amenities: ["aire-acondicionado", "tv-smart", "wifi", "banio-privado", "ducha-caliente", "balcon", "sala-estar", "minibar"],
+    amenities: ["aire-acondicionado", "tv-smart", "wifi", "banio-privado", "escritorio"],
     images: [
-      "https://i0.wp.com/iguazuargentinatours.com/wp-content/uploads/2020/05/Iguazu-Waterfalls-Awasi-Iguazu-PH-Miguel-Cesar-scaled.jpg?fit=1920%2C1275&ssl=1",
-      "https://i0.wp.com/iguazuargentinatours.com/wp-content/uploads/2020/05/Iguazu-Waterfalls-Awasi-Iguazu-PH-Miguel-Cesar-scaled.jpg?fit=1920%2C1275&ssl=1"
+      "https://i.ibb.co/C3gsRXKp/unnamed-4.webp"
     ],
     status: "disponible"
   },
   {
     id: 4,
-    name: "Habitación Individual",
-    slug: "habitacion-individual",
-    description: "Perfecta para viajeros solitarios. Habitación funcional con cama individual, escritorio de trabajo y todas las comodidades necesarias.",
-    max_guests: 1,
-    base_price: 35000,
+    name: "Habitación Triple",
+    slug: "habitacion-triple",
+    description: "Habitación versátil con cama matrimonial y cama individual, perfecta para familias pequeñas o grupos.",
+    max_guests: 3,
+    base_price: 140000,
     beds_info: {
+      matrimonial: 1,
       individual: 1
     },
     amenities: ["aire-acondicionado", "tv-smart", "wifi", "banio-privado", "escritorio"],
     images: [
-      "https://i0.wp.com/iguazuargentinatours.com/wp-content/uploads/2020/05/Iguazu-Waterfalls-Awasi-Iguazu-PH-Miguel-Cesar-scaled.jpg?fit=1920%2C1275&ssl=1"
+      "https://i.ibb.co/Jj0Dv6fx/unnamed-5.webp"
     ],
     status: "disponible"
   },
   {
     id: 5,
-    name: "Habitación Cuádruple",
-    slug: "habitacion-cuadruple",
-    description: "Ideal para grupos grandes o familias. Dos camas dobles con espacio amplio y zona de estar compartida.",
-    max_guests: 4,
-    base_price: 85000,
-    beds_info: {
-      doble: 2
-    },
-    amenities: ["aire-acondicionado", "tv-smart", "wifi", "banio-privado", "area-estar", "cocineta"],
-    images: [
-      "https://i0.wp.com/iguazuargentinatours.com/wp-content/uploads/2020/05/Iguazu-Waterfalls-Awasi-Iguazu-PH-Miguel-Cesar-scaled.jpg?fit=1920%2C1275&ssl=1"
-    ],
-    status: "disponible"
-  },
-  {
-    id: 6,
-    name: "Suite Ejecutiva",
-    slug: "suite-ejecutiva",
-    description: "Nuestra habitación más premium con sala de reuniones, cama king size, baño con jacuzzi y servicios exclusivos de conserjería.",
+    name: "Suite Deluxe",
+    slug: "suite-deluxe",
+    description: "Suite premium con cama matrimonial king size, sala de estar y amenities de lujo para estadías especiales.",
     max_guests: 2,
-    base_price: 120000,
+    base_price: 200000,
     beds_info: {
       king: 1
     },
-    amenities: ["aire-acondicionado", "tv-smart", "wifi", "banio-privado", "jacuzzi", "sala-reuniones", "conserjeria", "minibar"],
+    amenities: ["aire-acondicionado", "tv-smart", "wifi", "banio-privado", "jacuzzi", "sala-estar", "minibar"],
     images: [
-      "https://i0.wp.com/iguazuargentinatours.com/wp-content/uploads/2020/05/Iguazu-Waterfalls-Awasi-Iguazu-PH-Miguel-Cesar-scaled.jpg?fit=1920%2C1275&ssl=1",
-      "https://i0.wp.com/iguazuargentinatours.com/wp-content/uploads/2020/05/Iguazu-Waterfalls-Awasi-Iguazu-PH-Miguel-Cesar-scaled.jpg?fit=1920%2C1275&ssl=1"
+      "https://i.ibb.co/Jj0Dv6fx/unnamed-5.webp"
     ],
     status: "disponible"
   }

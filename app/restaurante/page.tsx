@@ -8,37 +8,37 @@ import Image from 'next/image'
 export default function RestaurantePage() {
   const handleWhatsAppReservation = () => {
     const message = encodeURIComponent("¡Hola! Quiero hacer una reserva en el Restaurante Don Mario 🥩🍷")
-    window.open(`https://wa.me/5491112345678?text=${message}`, '_blank')
+    window.open(`https://wa.me/5493757671408?text=${message}`, '_blank')
   }
 
   const handlePhoneReservation = () => {
-    window.open('tel:+5491112345678')
+    window.open('tel:+5493757671408')
   }
 
   const galleryImages = [
     {
-      src: "https://i.ibb.co/fdyP72yr/469511863-17948267576910760-160937566039743134-n-1.jpg",
-      alt: "Restaurante Don Mario - Ambiente elegante"
+      src: "https://lh3.googleusercontent.com/gps-cs-s/AHVAweoA4TX4AMBmcyErhuSwpy6BN9NUePDk-UDGVy7RBCL5a7R9dnmrQw939towOvU1tGq7SBlqK57eN9bynYViAbFBP--xB1qu2Hp-zOmSrPPLh-sNwZapaHinzEqX3aKcqkUd3yC4Dg=w243-h406-n-k-no-nu",
+      alt: "Restaurante Don Mario - Fachada principal"
     },
     {
-      src: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3",
-      alt: "Cortes premium de carne argentina"
+      src: "https://lh3.googleusercontent.com/gps-cs-s/AHVAwerJi7c9z6uRlDtvbQFkbGY5m-qwBthV4uQ-8yenD6beDv9ZUpvhV8DaatMw_FjbylMXH00PC51CXoDSDTIOicKsEkNoK2BUwhQeVVRxS7rJ4rZPF8mK9MqFdARNHFNK76xlzlMp=w243-h406-n-k-no-nu",
+      alt: "Restaurante Don Mario - Interior del comedor"
     },
     {
-      src: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3",
-      alt: "Vinos argentinos seleccionados"
+      src: "https://lh3.googleusercontent.com/gps-cs-s/AHVAweqTLLZSxVQrfkI2FaqYBg8f-O9XSJagr8N0X-flZGld28sZAeNuGqVJq5dnbEHtwKEcR4ECNLDN4Q4K-eFHpBIsGw27rvS-BItfsmrKwVB91YSascf7woVXPbUt5BGYZhOEPu3F=s1360-w1360-h1020-rw",
+      alt: "Restaurante Don Mario - Área de parrilla"
     },
     {
-      src: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3",
-      alt: "Parrilla tradicional argentina"
+      src: "https://lh3.googleusercontent.com/gps-cs-s/AHVAwep4Y0IwIAW5mVGHSZalb0urad5M-D34WUBuDwAiEuXHzBLQ-UzOEtiNf5KMO35dcWW8xCSVu1rcPFE4cxduMfLfvWCq4RMmQEqY3tcZmU84-F-SEwCPOG7Dpe3n9hnTWd3w9v7eLQ=s1360-w1360-h1020-rw",
+      alt: "Restaurante Don Mario - Bar y vinos"
     },
     {
-      src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3",
-      alt: "Ambiente acogedor del restaurante"
+      src: "https://lh3.googleusercontent.com/gps-cs-s/AHVAwepoJGO81jVHRywqqXKyaltE_qu5qvC-y2KepuZjGLU7iuWA5PIGm0rxGIPhrQN_EOVing7CvaMnoscDmdX0U1SSdYPj_uwITFLHAYQhyQvEPBNo2_8VFxYKVHIBDJlniq5nNa82=s1360-w1360-h1020-rw",
+      alt: "Restaurante Don Mario - Detalles del ambiente"
     },
     {
-      src: "https://images.unsplash.com/photo-1577148611057-059d4a9cbb18?ixlib=rb-4.0.3",
-      alt: "Chef preparando cortes premium"
+      src: "https://lh3.googleusercontent.com/gps-cs-s/AHVAweoOLam0gxchjQ5xqYWwXQSY_bDjNzQ7uEgga9eSAwHwEbK_BuALi2RToKG5Iy7KoFTgLyAgrpSmBknV-mEnAfQlaXz7uTJQc44pA4duwIpuMMPC9UhdShoGAlKFhQN6Y7FpvSZ4og=s1360-w1360-h1020-rw",
+      alt: "Restaurante Don Mario - Vista general del local"
     }
   ]
 
@@ -47,13 +47,13 @@ export default function RestaurantePage() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative h-96 bg-gradient-to-br from-slate-900 via-slate-800 to-zinc-900 pt-20">
+      <section className="relative h-96 bg-gradient-to-br from-slate-900 via-slate-800 to-zinc-900 pt-24">
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3')] bg-cover bg-center opacity-20" />
         
-        <div className="relative z-10 h-full flex items-center justify-center text-center text-white">
-          <div className="max-w-4xl mx-auto px-4 space-y-6">
-            <div className="flex justify-center mb-6">
+        <div className="relative z-10 h-full flex items-start justify-center text-center text-white pt-8">
+          <div className="max-w-4xl mx-auto px-4 space-y-4">
+            <div className="flex justify-center mb-4">
               <div className="w-24 h-24 rounded-full bg-amber-600/20 backdrop-blur-sm flex items-center justify-center border border-amber-500/30">
                 <Image 
                   src="https://instagram.fcnq2-2.fna.fbcdn.net/v/t51.2885-19/454197632_1205924547218194_7952387976563658738_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby41MDAuYzIifQ&_nc_ht=instagram.fcnq2-2.fna.fbcdn.net&_nc_cat=110&_nc_oc=Q6cZ2QGb-cXWdyHCc1XhSw7WSVg28tjjtPQ5RySbsVDDRQN0DSv-VXv6z2P9z-vx1giGRvg&_nc_ohc=EiOVP-3zd2IQ7kNvwGpcZ6W&_nc_gid=hBW1cFA26JglEf17AM4hFA&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_AfvjpTglYxbOJbLWScmmaL7Cb93S8wnpCYW_Ibm9-aRxPg&oe=6997D8D8&_nc_sid=7a9f4b"
@@ -77,7 +77,7 @@ export default function RestaurantePage() {
       {/* Horarios y Ubicación */}
       <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-1 gap-12 max-w-4xl mx-auto">
             
             {/* Horarios */}
             <div className="bg-white rounded-2xl shadow-xl p-8 border border-zinc-100">
@@ -90,39 +90,45 @@ export default function RestaurantePage() {
               
               <div className="space-y-4">
                 <div className="flex justify-between items-center py-3 border-b border-zinc-100">
-                  <span className="font-medium text-slate-700">Lunes a Viernes</span>
-                  <span className="text-amber-600 font-bold">12:00 - 23:00</span>
+                  <span className="font-medium text-slate-700">Lunes</span>
+                  <span className="text-amber-600 font-bold">17:00 - 23:30</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-zinc-100">
-                  <span className="font-medium text-slate-700">Sábados</span>
-                  <span className="text-amber-600 font-bold">12:00 - 24:00</span>
+                  <span className="font-medium text-slate-700">Martes</span>
+                  <span className="text-amber-600 font-bold">17:00 - 23:30</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-zinc-100">
+                  <span className="font-medium text-slate-700">Miércoles</span>
+                  <span className="text-amber-600 font-bold">17:00 - 23:30</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-zinc-100">
+                  <span className="font-medium text-slate-700">Jueves</span>
+                  <div className="text-right">
+                    <div className="text-amber-600 font-bold text-sm">11:00 - 15:00</div>
+                    <div className="text-amber-600 font-bold text-sm">18:00 - 23:30</div>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-zinc-100">
+                  <span className="font-medium text-slate-700">Viernes</span>
+                  <div className="text-right">
+                    <div className="text-amber-600 font-bold text-sm">11:00 - 15:00</div>
+                    <div className="text-amber-600 font-bold text-sm">18:00 - 23:30</div>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-zinc-100">
+                  <span className="font-medium text-slate-700">Sábado</span>
+                  <div className="text-right">
+                    <div className="text-amber-600 font-bold text-sm">11:00 - 15:00</div>
+                    <div className="text-amber-600 font-bold text-sm">18:00 - 23:30</div>
+                  </div>
                 </div>
                 <div className="flex justify-between items-center py-3">
-                  <span className="font-medium text-slate-700">Domingos</span>
-                  <span className="text-amber-600 font-bold">12:00 - 23:00</span>
+                  <span className="font-medium text-slate-700">Domingo</span>
+                  <div className="text-right">
+                    <div className="text-amber-600 font-bold text-sm">11:00 - 15:00</div>
+                    <div className="text-amber-600 font-bold text-sm">18:00 - 23:30</div>
+                  </div>
                 </div>
-              </div>
-            </div>
-
-            {/* Ubicación */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 border border-zinc-100">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center">
-                  <MapPin className="h-6 w-6 text-amber-600" />
-                </div>
-                <h2 className="text-3xl font-serif font-bold text-slate-900">Ubicación</h2>
-              </div>
-              
-              <div className="space-y-4">
-                <p className="text-lg text-slate-700">
-                  <span className="font-medium">Dirección:</span><br />
-                  Av. Iguazú 1234, Puerto Iguazú<br />
-                  Misiones, Argentina
-                </p>
-                <p className="text-lg text-slate-700">
-                  <span className="font-medium">Teléfono:</span><br />
-                  +54 9 11 1234-5678
-                </p>
               </div>
             </div>
           </div>
@@ -143,7 +149,7 @@ export default function RestaurantePage() {
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-zinc-100">
               <div className="relative h-96 bg-zinc-100">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3576.123456789!2d-54.5712345678!3d-25.5912345678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDM1JzMwLjAiTiA1NMKwMzQnMjUuNCJF!5e0!3m2!1sen!2sar!4v1234567890"
+                  src="https://maps.app.goo.gl/x75FSoYdSuarZHyM7"
                   className="absolute inset-0 w-full h-full border-0"
                   allowFullScreen
                   loading="lazy"
@@ -160,7 +166,7 @@ export default function RestaurantePage() {
           <div className="max-w-4xl mx-auto text-center space-y-6 mb-12">
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-slate-900">Nuestro Ambiente</h2>
             <p className="text-lg text-slate-600">
-              Un espacio elegante y acogedor donde la tradición argentina se encuentra con el lujo moderno
+              Un espacio elegante y acogedor donde la tradición argentina se encuentra con la pasión por la buena mesa
             </p>
           </div>
           
@@ -232,7 +238,7 @@ export default function RestaurantePage() {
             <div className="mt-12 flex flex-col md:flex-row gap-8 justify-center items-center text-sm text-slate-600">
               <div className="flex items-center gap-2">
                 <Clock className="h-4 w-4 text-red-600" />
-                <span>Lun a Dom: 12:00 - 23:00</span>
+                <span>Lun a Mié: 17:00 - 23:30 | Jue a Dom: 11:00-15:00 y 18:00-23:30</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-red-600" />
