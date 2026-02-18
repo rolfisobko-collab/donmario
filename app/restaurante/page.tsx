@@ -149,10 +149,14 @@ export default function RestaurantePage() {
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-zinc-100">
               <div className="relative h-96 bg-zinc-100">
                 <iframe 
-                  src="https://maps.app.goo.gl/x75FSoYdSuarZHyM7"
-                  className="absolute inset-0 w-full h-full border-0"
-                  allowFullScreen
-                  loading="lazy"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46411.701548857534!2d-54.632407880689705!3d-25.59478091095761!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f6923035b415f1%3A0x5289775ffd2ddfa1!2sParrilla%20Don%20Mario!5e1!3m2!1sen!2sar!4v1771453639496!5m2!1sen!2sar"
+                  width="600" 
+                  height="450" 
+                  style={{border:0}} 
+                  allowFullScreen 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="absolute inset-0 w-full h-full"
                 />
               </div>
             </div>

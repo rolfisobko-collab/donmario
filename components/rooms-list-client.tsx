@@ -93,9 +93,9 @@ export function RoomsListClient({ rooms }: RoomsListClientProps) {
                   className="py-4"
                 />
                 <div className="flex justify-between text-sm text-slate-600">
-                  <span>$30k</span>
-                  <span className="font-bold text-amber-600">${(filters.maxPrice / 1000).toFixed(0)}k</span>
-                  <span>$200k+</span>
+                  <span>$30.000</span>
+                  <span className="font-bold text-amber-600">${filters.maxPrice.toLocaleString("es-AR")}</span>
+                  <span>$150.000+</span>
                 </div>
               </div>
 
@@ -240,7 +240,7 @@ export function RoomsListClient({ rooms }: RoomsListClientProps) {
                       <div>
                         <div className="flex items-baseline gap-1">
                           <span className="text-2xl sm:text-3xl font-bold text-amber-600">
-                            ${(room.price / 1000).toFixed(0)}k
+                            ${room.price.toLocaleString("es-AR")}
                           </span>
                           <span className="text-sm text-slate-600">ARS</span>
                         </div>
