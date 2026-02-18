@@ -29,7 +29,7 @@ export function Parrilla() {
             Parrilla <span className="italic text-red-600">Don Mario</span>
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-            Sabores auténticos de la tierra, leña y tradición. Nuestra parrilla ofrece los mejores cortes 
+            Sabores auténticos de la tierra, carbón y tradición. Nuestra parrilla ofrece los mejores cortes 
             argentinos preparados con el arte de siempre.
           </p>
           <div className="flex flex-wrap justify-center gap-6 text-sm">

@@ -45,7 +45,7 @@ export function RoomsListClient({ rooms }: RoomsListClientProps) {
   const [filteredRooms, setFilteredRooms] = React.useState(rooms)
   const [filters, setFilters] = React.useState({
     guests: [] as number[],
-    maxPrice: 250000,
+    maxPrice: 150000,
   })
 
   React.useEffect(() => {
@@ -88,7 +88,7 @@ export function RoomsListClient({ rooms }: RoomsListClientProps) {
                   value={[filters.maxPrice]}
                   onValueChange={(value) => setFilters({ ...filters, maxPrice: value[0] })}
                   min={30000}
-                  max={200000}
+                  max={150000}
                   step={10000}
                   className="py-4"
                 />
@@ -131,7 +131,7 @@ export function RoomsListClient({ rooms }: RoomsListClientProps) {
           {filteredRooms.length === 0 ? (
             <div className="bg-white/95 backdrop-blur-sm rounded-xl p-8 sm:p-12 text-center border-2 border-amber-200/50">
               <p className="text-lg sm:text-xl text-slate-700 mb-4">No hay habitaciones disponibles con estos filtros.</p>
-              <Button onClick={() => setFilters({ guests: [], maxPrice: 200000 })} variant="outline" className="border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white">
+              <Button onClick={() => setFilters({ guests: [], maxPrice: 150000 })} variant="outline" className="border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white">
                 Limpiar todos los filtros
               </Button>
             </div>
@@ -208,10 +208,23 @@ export function RoomsListClient({ rooms }: RoomsListClientProps) {
                         {room.amenities.slice(0, 4).map((amenity: any, idx: number) => {
                           const amenityName = typeof amenity === "string" ? amenity : amenity.name || amenity
                           const Icon = iconMap[amenityName.toLowerCase()] || Coffee
+                          
+                          // Parseo para mostrar nombres legibles
+                          const parseAmenityName = (name: string) => {
+                            return name
+                              .split('-')
+                              .map(word => {
+                                // Corregir "banio" → "baño"
+                                if (word === 'banio') return 'baño'
+                                return word.charAt(0).toUpperCase() + word.slice(1)
+                              })
+                              .join(' ')
+                          }
+                          
                           return (
                             <Badge key={idx} variant="outline" className="bg-amber-50 text-amber-700 border-amber-200 font-normal gap-1">
                               <Icon className="w-3 h-3" />
-                              <span>{amenityName}</span>
+                              <span>{parseAmenityName(amenityName)}</span>
                             </Badge>
                           )
                         })}

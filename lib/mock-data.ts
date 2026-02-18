@@ -7,7 +7,7 @@ export const mockRooms = [
     slug: "habitacion-doble",
     description: "Habitación cómoda con cama matrimonial, ideal para parejas o viajeros de negocios. Incluye aire acondicionado, TV smart y baño privado.",
     max_guests: 2,
-    base_price: 120000,
+    base_price: 70000,
     beds_info: {
       matrimonial: 1
     },
@@ -19,13 +19,13 @@ export const mockRooms = [
   },
   {
     id: 2,
-    name: "Habitación Simple",
+    name: "Habitación Simple (Sgl)",
     slug: "habitacion-simple",
-    description: "Habitación funcional con cama matrimonial, perfecta para viajeros solitarios o estancias cortas.",
+    description: "Habitación funcional con cama individual, perfecta para viajeros solitarios o estancias cortas.",
     max_guests: 1,
-    base_price: 80000,
+    base_price: 50000,
     beds_info: {
-      matrimonial: 1
+      individual: 1
     },
     amenities: ["aire-acondicionado", "tv-smart", "wifi", "banio-privado"],
     images: [
@@ -35,27 +35,11 @@ export const mockRooms = [
   },
   {
     id: 3,
-    name: "Habitación Cuádruple",
-    slug: "habitacion-cuadruple",
-    description: "Espaciosa habitación con dos camas matrimoniales, ideal para familias o grupos grandes.",
-    max_guests: 4,
-    base_price: 160000,
-    beds_info: {
-      matrimonial: 2
-    },
-    amenities: ["aire-acondicionado", "tv-smart", "wifi", "banio-privado", "escritorio"],
-    images: [
-      "https://i.ibb.co/C3gsRXKp/unnamed-4.webp"
-    ],
-    status: "disponible"
-  },
-  {
-    id: 4,
     name: "Habitación Triple",
     slug: "habitacion-triple",
     description: "Habitación versátil con cama matrimonial y cama individual, perfecta para familias pequeñas o grupos.",
     max_guests: 3,
-    base_price: 140000,
+    base_price: 80000,
     beds_info: {
       matrimonial: 1,
       individual: 1
@@ -67,16 +51,33 @@ export const mockRooms = [
     status: "disponible"
   },
   {
-    id: 5,
-    name: "Suite Deluxe",
-    slug: "suite-deluxe",
-    description: "Suite premium con cama matrimonial king size, sala de estar y amenities de lujo para estadías especiales.",
-    max_guests: 2,
-    base_price: 200000,
+    id: 4,
+    name: "Habitación Cuádruple",
+    slug: "habitacion-cuadruple",
+    description: "Espaciosa habitación con dos camas matrimoniales, ideal para familias o grupos grandes.",
+    max_guests: 4,
+    base_price: 100000,
     beds_info: {
-      king: 1
+      matrimonial: 2
     },
-    amenities: ["aire-acondicionado", "tv-smart", "wifi", "banio-privado", "jacuzzi", "sala-estar", "minibar"],
+    amenities: ["aire-acondicionado", "tv-smart", "wifi", "banio-privado", "escritorio"],
+    images: [
+      "https://i.ibb.co/C3gsRXKp/unnamed-4.webp"
+    ],
+    status: "disponible"
+  },
+  {
+    id: 5,
+    name: "Habitación Quíntuple",
+    slug: "habitacion-quintuple",
+    description: "Habitación espaciosa para grupos grandes, con múltiples camas y amplio espacio.",
+    max_guests: 5,
+    base_price: 140000,
+    beds_info: {
+      matrimonial: 2,
+      individual: 1
+    },
+    amenities: ["aire-acondicionado", "tv-smart", "wifi", "banio-privado", "escritorio", "sala-estar"],
     images: [
       "https://i.ibb.co/Jj0Dv6fx/unnamed-5.webp"
     ],

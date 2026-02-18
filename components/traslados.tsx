@@ -57,8 +57,9 @@ export function Traslados() {
           </div>
         </div>
 
+        {/* Varios traslados destacados en home */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {tours.map((tour: Tour) => (
+          {tours.slice(0, 6).map((tour: Tour) => (
             <Card key={tour.id} className="group border-none bg-white shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden rounded-2xl border border-zinc-100">
               <div className="relative h-64 overflow-hidden">
                 <Image
@@ -111,6 +112,19 @@ export function Traslados() {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* Botón Ver más traslados */}
+        <div className="text-center mt-12">
+          <a
+            href="/traslados"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+          >
+            Ver más traslados
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
         </div>
       </div>
     </section>

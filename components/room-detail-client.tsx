@@ -283,13 +283,25 @@ export function RoomDetailClient({ room }: RoomDetailClientProps) {
                 <h2 className="text-3xl lg:text-4xl font-serif font-bold mb-8 text-slate-900">Comodidades</h2>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {safeAmenities.map((amenity, idx) => {
-                    const Icon = iconMap[amenity] || Check
+                    const amenityName = typeof amenity === "string" ? amenity : (amenity as any).name || amenity
+                    const Icon = iconMap[amenityName.toLowerCase()] || Check
+                    
+                    // Parseo para mostrar nombres legibles
+                    const parseAmenityName = (name: string) => {
+                      return name
+                        .split('-')
+                        .map(word => {
+                          // Corregir "banio" → "baño"
+                          if (word === 'banio') return 'baño'
+                          return word.charAt(0).toUpperCase() + word.slice(1)
+                        })
+                        .join(' ')
+                    }
+                    
                     return (
                       <div key={idx} className="flex items-center gap-4 p-4 rounded-2xl bg-white/95 backdrop-blur-sm border border-amber-200/50 hover:shadow-md transition-shadow">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center flex-shrink-0">
-                          <Icon className="w-6 h-6 text-amber-700" />
-                        </div>
-                        <span className="font-medium text-slate-800">{amenity}</span>
+                        <Icon className="h-6 w-6 text-amber-600 flex-shrink-0" />
+                        <span className="text-slate-700 font-medium">{parseAmenityName(amenityName)}</span>
                       </div>
                     )
                   })}
